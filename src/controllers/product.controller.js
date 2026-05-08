@@ -1,5 +1,27 @@
 const Product = require('../models/Product');
+const Category = require('../models/Category');
 const Alert = require('../models/Alert');
+
+exports.nextBarcode = async (req, res, next) => {
+  try {
+    const { categoryId } = req.query;
+    const category = await Category.findById(categoryId);
+    if (!category || !category.code) return res.status(400).json({ message: 'Categoría sin código asignado' });
+
+    const prefix = category.code;
+    // Find highest barcode with this prefix
+    const last = await Product.findOne({ barcode: { $regex: `^${prefix}` } }).sort({ barcode: -1 });
+    let nextNum = 1;
+    if (last && last.barcode) {
+      const suffix = last.barcode.substring(3);
+      nextNum = parseInt(suffix, 10) + 1;
+    }
+    const barcode = prefix + nextNum.toString().padStart(4, '0');
+    res.json({ barcode, prefix });
+  } catch (error) {
+    next(error);
+  }
+};
 
 exports.getAll = async (req, res, next) => {
   try {
