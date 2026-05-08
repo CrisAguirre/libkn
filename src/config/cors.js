@@ -6,8 +6,8 @@ const corsOptions = {
       'http://localhost:4000'
     ].filter(Boolean);
 
-    // Permitir requests sin origin (Postman, mobile apps)
-    if (!origin || allowedOrigins.includes(origin)) {
+    // Permitir requests sin origin (Postman, mobile apps) o dominios vercel
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       callback(null, true);
     } else {
       callback(new Error('No permitido por CORS'));
