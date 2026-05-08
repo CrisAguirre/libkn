@@ -71,6 +71,23 @@ exports.registerClient = async (req, res, next) => {
   }
 };
 
+exports.loginGuest = async (req, res, next) => {
+  try {
+    const guestId = Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
+    const guestUser = await User.create({
+      name: 'Invitado',
+      email: `guest-${guestId}@lainmaculada.com`,
+      passwordHash: guestId,
+      role: 'invitado'
+    });
+    
+    const tokens = generateTokens(guestUser._id);
+    res.status(201).json({ message: 'Sesión de invitado iniciada', user: guestUser.toJSON(), ...tokens });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.refreshToken = async (req, res, next) => {
   try {
     const { refreshToken } = req.body;
@@ -93,6 +110,23 @@ exports.refreshToken = async (req, res, next) => {
 
 exports.getProfile = async (req, res) => {
   res.json({ user: req.user });
+};
+
+exports.updateProfile = async (req, res, next) => {
+  try {
+    const { name, phone, address } = req.body;
+    const user = await User.findById(req.user._id);
+    if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
+    
+    if (name) user.name = name;
+    if (phone) user.phone = phone;
+    if (address) user.address = address;
+    
+    await user.save();
+    res.json({ message: 'Perfil actualizado', user: user.toJSON() });
+  } catch (error) {
+    next(error);
+  }
 };
 
 exports.changePassword = async (req, res, next) => {
