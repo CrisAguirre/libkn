@@ -37,16 +37,35 @@ exports.login = async (req, res, next) => {
 
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, phone, address } = req.body;
     const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       return res.status(400).json({ message: 'El email ya está registrado' });
     }
 
     const user = await User.create({
-      name, email, passwordHash: password, role: role || 'cajero'
+      name, email, phone, address, passwordHash: password, role: role || 'cajero'
     });
     res.status(201).json({ message: 'Usuario creado exitosamente', user: user.toJSON() });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.registerClient = async (req, res, next) => {
+  try {
+    const { name, email, phone, address, password } = req.body;
+    const existingUser = await User.findOne({ email: email.toLowerCase() });
+    if (existingUser) {
+      return res.status(400).json({ message: 'El email ya está registrado' });
+    }
+
+    const user = await User.create({
+      name, email, phone, address, passwordHash: password, role: 'cliente'
+    });
+    
+    const tokens = generateTokens(user._id);
+    res.status(201).json({ message: 'Registro exitoso', user: user.toJSON(), ...tokens });
   } catch (error) {
     next(error);
   }

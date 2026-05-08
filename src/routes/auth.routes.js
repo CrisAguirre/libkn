@@ -4,6 +4,7 @@ const authMiddleware = require('../middleware/auth.middleware');
 const { authLimiter } = require('../middleware/rateLimiter');
 
 router.post('/login', authLimiter, auth.login);
+router.post('/register-client', authLimiter, auth.registerClient); // Registro público de cliente
 router.post('/register', authMiddleware, auth.register); // Solo autenticados (admin)
 router.post('/refresh', auth.refreshToken);
 router.get('/profile', authMiddleware, auth.getProfile);
