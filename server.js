@@ -21,6 +21,7 @@ const alertRoutes = require('./src/routes/alert.routes');
 const reportRoutes = require('./src/routes/report.routes');
 const storefrontRoutes = require('./src/routes/storefront.routes');
 const settingsRoutes = require('./src/routes/settings.routes');
+const preloadRoutes  = require('./src/routes/preload.routes');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -52,6 +53,7 @@ app.use('/api/alerts', alertRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/storefront', storefrontRoutes);
 app.use('/api/settings', settingsRoutes);
+app.use('/api/preload',  preloadRoutes);
 
 // Ruta de health check
 app.get('/api/health', (req, res) => {

@@ -10,15 +10,15 @@ const seedAdmin = async () => {
     console.log('✅ Conectado a MongoDB');
 
     // Crear admin si no existe
-    const adminExists = await User.findOne({ email: 'admin@lainmaculada.com' });
+    const adminExists = await User.findOne({ email: 'admin@demostore.com' });
     if (!adminExists) {
       await User.create({
         name: 'Libardo Jesús Meza Pantoja',
-        email: 'admin@lainmaculada.com',
-        passwordHash: 'Admin2026*',
+        email: 'admin@demostore.com',
+        passwordHash: 'Janis724',
         role: 'admin'
       });
-      console.log('👤 Admin creado: admin@lainmaculada.com / Admin2026*');
+      console.log('👤 Admin creado: admin@demostore.com / Janis724');
     } else {
       console.log('👤 Admin ya existe');
     }

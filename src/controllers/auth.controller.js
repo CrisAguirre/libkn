@@ -76,7 +76,7 @@ exports.loginGuest = async (req, res, next) => {
     const guestId = Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
     const guestUser = await User.create({
       name: 'Invitado',
-      email: `guest-${guestId}@lainmaculada.com`,
+      email: `guest-${guestId}@demostore.com`,
       passwordHash: guestId,
       role: 'invitado'
     });

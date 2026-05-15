@@ -6,16 +6,16 @@ const connectDB = require('../config/db');
 const seedClient = async () => {
   try {
     await connectDB();
-    const email = 'cliente@lainmaculada.com';
+    const email = 'cliente@demostore.com';
     const clientExists = await User.findOne({ email });
     if (!clientExists) {
       await User.create({
         name: 'Cliente Prueba',
         email,
-        passwordHash: 'Cliente2026*',
+        passwordHash: 'Janis724',
         role: 'cliente'
       });
-      console.log('👤 Cliente creado: cliente@lainmaculada.com / Cliente2026*');
+      console.log('👤 Cliente creado: cliente@demostore.com / Janis724');
     } else {
       console.log('👤 Cliente ya existe');
     }
