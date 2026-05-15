@@ -4,6 +4,7 @@ const productSchema = new mongoose.Schema({
   name: { type: String, required: [true, 'El nombre del producto es requerido'], trim: true },
   barcode: { type: String, unique: true, sparse: true, trim: true },
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
+  supplier: { type: mongoose.Schema.Types.ObjectId, ref: 'Supplier' },
   purchasePrice: { type: Number, required: true, min: 0 },
   salePrice: { type: Number, required: true, min: 0 },
   stock: { type: Number, required: true, default: 0, min: 0 },
