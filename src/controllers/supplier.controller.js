@@ -8,7 +8,7 @@ exports.getAll = async (req, res, next) => {
     if (active !== undefined) filter.isActive = active === 'true';
     if (search) filter.$text = { $search: search };
 
-    const suppliers = await Supplier.find(filter).sort({ name: 1 });
+    const suppliers = await Supplier.find(filter).populate('categories', 'name icon code').sort({ name: 1 });
     res.json(suppliers);
   } catch (err) { next(err); }
 };
@@ -25,8 +25,20 @@ exports.getOne = async (req, res, next) => {
 // POST /api/suppliers
 exports.create = async (req, res, next) => {
   try {
+    // Auto-generate supplier code (2 digits, sequential)
+    const lastSupplier = await Supplier.findOne({ code: { $exists: true, $ne: '' } })
+      .sort({ code: -1 });
+    let nextCode = '01';
+    if (lastSupplier && lastSupplier.code) {
+      const num = parseInt(lastSupplier.code, 10) + 1;
+      nextCode = num.toString().padStart(2, '0');
+    }
+    req.body.code = nextCode;
+
     const supplier = new Supplier(req.body);
     await supplier.save();
+    // Populate categories before returning
+    await supplier.populate('categories', 'name icon code');
     res.status(201).json(supplier);
   } catch (err) { next(err); }
 };
