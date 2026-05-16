@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const supplierSchema = new mongoose.Schema({
   name:        { type: String, required: [true, 'El nombre del proveedor es requerido'], trim: true },
   code:        { type: String, required: [true, 'El código del proveedor es requerido'], unique: true, trim: true },
+  categories:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
   contactName: { type: String, default: '' },
   phone:       { type: String, default: '' },
   email:       { type: String, default: '' },
