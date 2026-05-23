@@ -247,9 +247,9 @@ const PRODUCTOS = [
     ['Mantequilla Rama Tradicional 170gr', 'SNA', '39', 4800, 3792, 24, 5],
     ['Mermelada 80 gr sabores', 'SNA', '39', 2500, 1994, 24, 5],
     ['Barrilete surtido ', 'SNA', '39', 400, 242, 24, 5],
-    ['Lokiño Surtido pack x100', 'SNA', '39-16', 9000, 7951, 24, 5],
+    ['Lokiño Surtido pack x100', 'SNA', '39', 9000, 7951, 24, 5],
     ['Lokiño Surtido unidad', 'SNA', '39', 100, 79, 24, 5],
-    ['Trululu Surtido 35gr', 'SNA', '39-16', 2000, 1498, 24, 5],
+    ['Trululu Surtido 35gr', 'SNA', '39', 2000, 1498, 24, 5],
     ['Trululu Lenguas Blex', 'SNA', '39', 2500, 1805, 24, 5],
     ['OKA Nano Grageada', 'SNA', '39', 2500, 1858, 24, 5],
     ['Tiktak fruit', 'SNA', '39', 2500, 2127, 24, 5],
@@ -335,7 +335,6 @@ const PRODUCTOS = [
     ['Yogurt bolsa unidad sabores 150 gr', 'LAC', '10', 1200, 937, 24, 5],
 
     //Coltabacos
-    ['', 'LAC', '32', 3800, , 24, 5],
     ['Malboro Fusion Sandia x10', 'CIG', '32', 8500, 7000, 24, 5],
     ['Malboro Fusion Sandia x20', 'CIG', '32', 17000, 14000, 24, 5],
     ['Malboro Rojo Gold x10', 'CIG', '32', 8000, 6700, 24, 5],
@@ -631,10 +630,10 @@ async function seed() {
                 barcode,
                 category: catId,
                 supplier: provId,
-                purchasePrice,
-                salePrice,
-                stock,
-                minStock
+                purchasePrice: purchasePrice || 0,
+                salePrice: salePrice || 0,
+                stock: stock || 0,
+                minStock: minStock || 0
             });
 
             totalCreados++;
