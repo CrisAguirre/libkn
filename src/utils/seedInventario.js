@@ -23,7 +23,7 @@ const PRODUCTOS = [
     ['Powerade 500 ml', 'BEB', '07', 3500, 3166, 24, 5],
     ['Schweeps 400 ml', 'BEB', '07', 2500, 2091, 24, 5],
     ['Jugo del Valle 400 ml', 'BEB', '07', 2200, 1666, 24, 5],
-    ['*Sprite 400 ml', 'BEB', '07', 2500, 2091, 24, 5],*
+    ['*Sprite 400 ml', 'BEB', '07', 2500, 2091, 24, 5], Sí
     ['Quatro 1.5L', 'BEB', '07', 4500, 3750, 24, 5],
     ['Quatro 2.5L', 'BEB', '07', 6000, 5000, 24, 5],
     ['Coca-Cola 1.5L', 'BEB', '07', 6000, 5000, 24, 5],
@@ -140,7 +140,6 @@ const PRODUCTOS = [
     ['Queso parmesano 40 ml', 'LAC', '10', 5800, , 24, 5],
     ['Leche alpín caja', 'LAC', '10', 3800, , 24, 5],
     ['Avena vaso 250 ml', 'LAC', '10', 4000, , 24, 5],
-
     ['Leche 1100 ml', 'LAC', '28', 4800, , 24, 5],
     ['Leche 400 ml', 'LAC', '28', 2200, , 24, 5],
     ['Leche 200 ml', 'LAC', '28', 1200, , 24, 5],
@@ -153,7 +152,7 @@ const PRODUCTOS = [
     ['Crema De leche 125 ml', 'LAC', '27', 3000, 2550, 24, 5],
     ['Crema De leche 170 ml', 'LAC', '27', 4500, 3850, 24, 5],
 
-    ['Doritos 285 gr', 'SNA', '17', 8000, , 24, 3],
+    [' A Doritos 285 gr', 'SNA', '17', 8000, , 24, 3],
     ['DeTodito Familiar 765 gr', 'SNA', '17', 8000, , 24, 3],
     ['Choclitos 210 gr', 'SNA', '17', 7000, , 24, 3],
     ['Papa Margarita 105 gr', 'SNA', '17', 7000, , 24, 3],
