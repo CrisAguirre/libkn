@@ -579,7 +579,7 @@ const PRODUCTOS = [
     ['Harina pan blanca 500 gr', 'VAR', '44', , 2143, 24, 5],
     ['Promasa blanca 500 gr', 'VAR', '44', , 2143, 24, 5],
     ['Mezcla pancakes Aintgemima 100 gr', 'VAR', '44', , 1686, 24, 5],
-    [' Espaguetipan 250 G gr', 'VAR', '44', , 1143, 24, 5]
+    ['Espaguetipan 250 G gr', 'VAR', '44', , 1143, 24, 5]
 
 ];
 
