@@ -26,13 +26,13 @@ exports.getOne = async (req, res, next) => {
 exports.create = async (req, res, next) => {
   try {
     // Auto-generate supplier code (sequential)
-    // Buscamos el mayor código numérico normal (menor a 90) para ignorar códigos especiales (ej. 99, 100)
+    // Buscamos el mayor código numérico normal (menor a 99) para ignorar códigos especiales (ej. 99, 100)
     const allSuppliers = await Supplier.find({}, 'code');
     let maxNormalCode = 0;
     
     allSuppliers.forEach(s => {
       const num = parseInt(s.code, 10);
-      if (!isNaN(num) && num < 90 && num > maxNormalCode) {
+      if (!isNaN(num) && num < 99 && num > maxNormalCode) {
         maxNormalCode = num;
       }
     });
