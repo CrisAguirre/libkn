@@ -25,14 +25,19 @@ exports.getOne = async (req, res, next) => {
 // POST /api/suppliers
 exports.create = async (req, res, next) => {
   try {
-    // Auto-generate supplier code (2 digits, sequential)
-    const lastSupplier = await Supplier.findOne({ code: { $exists: true, $ne: '' } })
-      .sort({ code: -1 });
-    let nextCode = '01';
-    if (lastSupplier && lastSupplier.code) {
-      const num = parseInt(lastSupplier.code, 10) + 1;
-      nextCode = num.toString().padStart(2, '0');
-    }
+    // Auto-generate supplier code (sequential)
+    // Buscamos el mayor código numérico normal (menor a 90) para ignorar códigos especiales (ej. 99, 100)
+    const allSuppliers = await Supplier.find({}, 'code');
+    let maxNormalCode = 0;
+    
+    allSuppliers.forEach(s => {
+      const num = parseInt(s.code, 10);
+      if (!isNaN(num) && num < 90 && num > maxNormalCode) {
+        maxNormalCode = num;
+      }
+    });
+
+    const nextCode = (maxNormalCode + 1).toString().padStart(2, '0');
     req.body.code = nextCode;
 
     const supplier = new Supplier(req.body);
