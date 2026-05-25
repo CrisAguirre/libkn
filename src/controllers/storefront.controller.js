@@ -8,7 +8,12 @@ exports.getProducts = async (req, res, next) => {
     const filter = { isActive: true, stock: { $gt: 0 } };
 
     if (category) filter.category = category;
-    if (search) filter.$text = { $search: search };
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { barcode: { $regex: search, $options: 'i' } }
+      ];
+    }
 
     const products = await Product.find(filter)
       .select('name salePrice stock imageUrl description category')

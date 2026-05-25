@@ -34,11 +34,19 @@ exports.nextBarcode = async (req, res, next) => {
 
 exports.getAll = async (req, res, next) => {
   try {
-    const { search, category, page = 1, limit = 50, active } = req.query;
+    const { search, category, supplier, page = 1, limit = 50, active } = req.query;
     const filter = {};
 
-    if (search) filter.$text = { $search: search };
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { barcode: { $regex: search, $options: 'i' } }
+      ];
+    }
     if (category) filter.category = category;
+    if (supplier) {
+      filter.supplier = { $in: supplier.split(',') };
+    }
     if (active !== undefined) filter.isActive = active === 'true';
 
     const products = await Product.find(filter)
