@@ -665,7 +665,7 @@ const PRODUCTOS = [
     ['Noxpirion noche dia junior sobre', 'MED', '33', 2800, 2500, 24, 5],
     ['Noraver dia y noche', 'MED', '33', 3300, 2800, 24, 5],
     ['Noraver pastilla garganta', 'MED', '33', 2000, 1700, 24, 5],
-    ['Sal bonfiest sobre', 'MED', '33', 45000, 3500, 24, 5],
+    ['Sal bonfiest sobre', 'MED', '33', 4500, 3500, 24, 5],
     ['Sal de frutas Lua', 'MED', '33', 3500, 2900, 24, 5],
     ['Curitas unidad', 'MED', '33', 200, 100, 24, 5],
 
@@ -767,8 +767,8 @@ async function seed() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
         console.log('\n✅ Conectado a MongoDB');
-        await Product.deleteMany({});
-        console.log('🧹 Limpiando productos anteriores...');
+        await Product.deleteMany({}); // Preserving existing inventory
+        console.log('🧹 Se eliminaron productos anteriores, se agregarán los nuevos.');
 
         console.log('📂 Cargando categorías desde la base de datos...');
         const categoriasDB = await Category.find();
@@ -789,35 +789,52 @@ async function seed() {
         let totalCreados = 0;
         const providerConsecutives = {};
 
-        for (const [name, catCode, provCode, salePrice, purchasePrice, stock, minStock] of PRODUCTOS) {
+        for (const [name, catCode, provCode, salePriceRaw, purchasePriceRaw, stock, minStock] of PRODUCTOS) {
             const catId = catMap[catCode];
             if (!catId) { console.log(`   ⚠️ Categoría no encontrada para el código: ${catCode} (Producto: ${name})`); continue; }
 
             const provId = provMap[provCode];
             if (!provId) { console.log(`   ⚠️ Proveedor no encontrado para el código: ${provCode} (Producto: ${name})`); continue; }
 
+            // Ensure numeric values and correct ordering (salePrice > purchasePrice)
+            let salePrice = salePriceRaw || 0;
+            let purchasePrice = purchasePriceRaw || 0;
+            if (salePrice && purchasePrice && salePrice <= purchasePrice) {
+                // Swap to maintain sale > purchase
+                const temp = salePrice;
+                salePrice = purchasePrice;
+                purchasePrice = temp;
+            }
+
             if (!providerConsecutives[provCode]) {
                 providerConsecutives[provCode] = 1;
             }
-            const consecutive = providerConsecutives[provCode]++;
+            let consecutive = providerConsecutives[provCode]++;
 
             // Generar barcode: CAT(3) + PROV(2) + CONSEC(3)
-            // Ejemplo: BEB + 07 + 001 = BEB07001
-            const barcode = `${catCode}${provCode}${consecutive.toString().padStart(3, '0')}`;
+            let barcode = `${catCode}${provCode}${consecutive.toString().padStart(3, '0')}`;
+            
+            // Check if product with this barcode already exists and find next available
+            while (await Product.findOne({ barcode })) {
+                consecutive = providerConsecutives[provCode]++;
+                barcode = `${catCode}${provCode}${consecutive.toString().padStart(3, '0')}`;
+            }
 
             await Product.create({
                 name,
                 barcode,
                 category: catId,
                 supplier: provId,
-                purchasePrice: purchasePrice || 0,
-                salePrice: salePrice || 0,
+                purchasePrice: purchasePrice,
+                salePrice: salePrice,
                 stock: stock || 0,
                 minStock: minStock || 0
             });
 
             totalCreados++;
         }
+
+
 
         const total = await Product.countDocuments();
         const sinStock = await Product.countDocuments({ stock: 0 });
