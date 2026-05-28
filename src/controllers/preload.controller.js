@@ -81,17 +81,14 @@ exports.preload = async (req, res, next) => {
       // 2. Categories (active only, ordered)
       Category.find({ isActive: true }).sort({ order: 1 }).lean(),
 
-      // 3. Products for POS (active, up to 200) — same params POS uses
+      // 3. ALL active products for POS + Inventory local search
       (async () => {
-        const [products, total] = await Promise.all([
-          Product.find({ isActive: true })
-            .populate('category', 'name icon')
+        const products = await Product.find({ isActive: true })
+            .populate('category', 'name icon code')
+            .populate('supplier', 'name code')
             .sort({ name: 1 })
-            .limit(200)
-            .lean(),
-          Product.countDocuments({ isActive: true })
-        ]);
-        return { products, total, page: 1, pages: Math.ceil(total / 200) };
+            .lean();
+        return { products, total: products.length };
       })(),
 
       // 4. Unread alerts (same filter as navbar badge)

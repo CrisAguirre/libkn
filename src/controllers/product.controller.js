@@ -38,10 +38,16 @@ exports.getAll = async (req, res, next) => {
     const filter = {};
 
     if (search) {
-      filter.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { barcode: { $regex: search, $options: 'i' } }
-      ];
+      // Use $text index for multi-word search (fast, uses index)
+      // Falls back to regex only for very short terms where $text is less effective
+      if (search.length >= 2) {
+        filter.$text = { $search: search };
+      } else {
+        filter.$or = [
+          { name: { $regex: search, $options: 'i' } },
+          { barcode: { $regex: search, $options: 'i' } }
+        ];
+      }
     }
     if (category) filter.category = category;
     if (supplier) {
@@ -49,15 +55,38 @@ exports.getAll = async (req, res, next) => {
     }
     if (active !== undefined) filter.isActive = active === 'true';
 
-    const products = await Product.find(filter)
+    // Run both queries in parallel
+    const [products, total] = await Promise.all([
+      Product.find(filter)
+        .populate('category', 'name icon code')
+        .populate('supplier', 'name code')
+        .sort({ name: 1 })
+        .skip((page - 1) * limit)
+        .limit(Number(limit))
+        .lean(),
+      Product.countDocuments(filter)
+    ]);
+
+    res.json({ products, total, page: Number(page), pages: Math.ceil(total / limit) });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/products/all
+ * Returns ALL active products in a single lean query.
+ * The frontend uses this for local-first search (POS + Inventory).
+ */
+exports.getAllActive = async (req, res, next) => {
+  try {
+    const products = await Product.find({ isActive: true })
       .populate('category', 'name icon code')
       .populate('supplier', 'name code')
       .sort({ name: 1 })
-      .skip((page - 1) * limit)
-      .limit(Number(limit));
+      .lean();
 
-    const total = await Product.countDocuments(filter);
-    res.json({ products, total, page: Number(page), pages: Math.ceil(total / limit) });
+    res.json({ products, total: products.length });
   } catch (error) {
     next(error);
   }
