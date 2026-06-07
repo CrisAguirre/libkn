@@ -4,14 +4,14 @@ const ctrl   = require('../controllers/debtor.controller');
 const auth   = require('../middleware/auth.middleware');
 const role   = require('../middleware/role.middleware');
 
-router.get('/next-code',             auth, role('admin'), ctrl.getNextCode);
-router.get('/',                      auth, role('admin'), ctrl.getAll);
-router.get('/:id',                   auth, role('admin'), ctrl.getOne);
-router.post('/',                     auth, role('admin'), ctrl.create);
-router.put('/:id',                   auth, role('admin'), ctrl.update);
-router.delete('/:id',                auth, role('admin'), ctrl.remove);
-router.post('/:id/transactions',     auth, role('admin'), ctrl.addTransaction);
-router.get('/:id/transactions',      auth, role('admin'), ctrl.getTransactions);
-router.post('/check-mora',           auth, role('admin'), ctrl.checkMora);
+router.get('/next-code',             auth, role('admin', 'cajero', 'operador'), ctrl.getNextCode);
+router.get('/',                      auth, role('admin', 'cajero', 'operador'), ctrl.getAll);
+router.get('/:id',                   auth, role('admin', 'cajero', 'operador'), ctrl.getOne);
+router.post('/',                     auth, role('admin', 'cajero', 'operador'), ctrl.create);
+router.put('/:id',                   auth, role('admin', 'cajero', 'operador'), ctrl.update);
+router.delete('/:id',                auth, role('admin', 'cajero', 'operador'), ctrl.remove);
+router.post('/:id/transactions',     auth, role('admin', 'cajero', 'operador'), ctrl.addTransaction);
+router.get('/:id/transactions',      auth, role('admin', 'cajero', 'operador'), ctrl.getTransactions);
+router.post('/check-mora',           auth, role('admin', 'cajero', 'operador'), ctrl.checkMora);
 
 module.exports = router;

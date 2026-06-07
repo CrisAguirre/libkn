@@ -6,7 +6,14 @@ exports.getAll = async (req, res, next) => {
     const { search, active } = req.query;
     const filter = {};
     if (active !== undefined) filter.isActive = active === 'true';
-    if (search) filter.$text = { $search: search };
+    if (search) {
+      const searchRegex = new RegExp(search, 'i');
+      filter.$or = [
+        { name: searchRegex },
+        { nit: searchRegex },
+        { code: searchRegex }
+      ];
+    }
 
     const suppliers = await Supplier.find(filter).populate('categories', 'name icon code').sort({ name: 1 });
     res.json(suppliers);

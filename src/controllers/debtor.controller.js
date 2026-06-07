@@ -7,7 +7,14 @@ exports.getAll = async (req, res, next) => {
     const { search, active, status } = req.query;
     const filter = {};
     if (active !== undefined) filter.isActive = active === 'true';
-    if (search) filter.$text = { $search: search };
+    if (search) {
+      const searchRegex = new RegExp(search, 'i');
+      filter.$or = [
+        { name: searchRegex },
+        { phone: searchRegex },
+        { code: searchRegex }
+      ];
+    }
 
     let debtors = await Debtor.find(filter)
       .select('-transactions')          // Exclude heavy array on listing
