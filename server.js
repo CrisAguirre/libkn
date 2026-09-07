@@ -27,6 +27,7 @@ const purchaseRoutes = require('./src/routes/purchase.routes');
 const expenseRoutes = require('./src/routes/expense.routes');
 const financeRoutes = require('./src/routes/finance.routes');
 const debtorRoutes  = require('./src/routes/debtor.routes');
+const scannerRoutes = require('./src/routes/scanner.routes');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -64,6 +65,7 @@ app.use('/api/purchases', purchaseRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/finance', financeRoutes);
 app.use('/api/debtors', debtorRoutes);
+app.use('/api/scanner', scannerRoutes);
 
 // Ruta de health check
 app.get('/api/health', (req, res) => {

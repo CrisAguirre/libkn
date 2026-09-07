@@ -1,0 +1,11 @@
+train: scanner/weights/train
+data: scanner/dataset
+epochs: 50
+imgsz: 640
+model: yolov8n.pt
+
+names:
+  0: producto_generico
+
+pathtrain: scanner/dataset/train
+pathval: scanner/dataset/val
