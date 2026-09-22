@@ -16,25 +16,47 @@ UPLOAD_FOLDER.mkdir(exist_ok=True)
 
 os.environ["YOLO_VERBOSE"] = "False"
 
+CONF_THRESHOLD = float(os.environ.get("SCANNER_CONF_THRESHOLD", "0.5"))
+ALLOW_COCO_FALLBACK = os.environ.get("SCANNER_ALLOW_COCO_FALLBACK", "0") == "1"
+
 def load_model():
     from ultralytics import YOLO
     model_path = Path(__file__).parent / "weights" / "best.pt"
     if model_path.exists():
-        return YOLO(str(model_path))
-    return YOLO("yolov8n.pt")
+        m = YOLO(str(model_path))
+        return m, {"model_used": "best.pt", "fallback": False}
+    if ALLOW_COCO_FALLBACK:
+        m = YOLO("yolov8n.pt")
+        return m, {"model_used": "yolov8n.pt (COCO generico, NO apto para inventario)", "fallback": True}
+    return None, {"model_used": None, "fallback": False, "error": "Modelo no entrenado: falta scanner/weights/best.pt"}
 
 model = None
+model_info = {"model_used": None, "fallback": False}
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify({"status": "OK", "service": "scanner"})
+    weights_ok = (Path(__file__).parent / "weights" / "best.pt").exists()
+    return jsonify({
+        "status": "OK",
+        "service": "scanner",
+        "model_trained": weights_ok,
+        "model_used": model_info.get("model_used"),
+        "fallback": model_info.get("fallback", False),
+        "conf_threshold": CONF_THRESHOLD,
+    })
 
 @app.route("/scan", methods=["POST"])
 def scan():
-    global model
+    global model, model_info
 
     if model is None:
-        model = load_model()
+        model, model_info = load_model()
+        if model is None:
+            return jsonify({
+                "success": False,
+                "error": model_info.get("error", "Modelo no disponible"),
+                "message": "Entrena el modelo (python train.py) y coloca weights/best.pt antes de contar existencias",
+            }), 500
 
     data = request.get_json()
 
@@ -57,7 +79,8 @@ def scan():
         results = model(image_path, verbose=False)
 
         detections = []
-        product_counts = {}
+        product_stats = {}
+        filtered_low_conf = 0
 
         for result in results:
             boxes = result.boxes
@@ -66,10 +89,14 @@ def scan():
                 class_name = result.names[class_id]
                 confidence = float(box.conf[0])
 
-                if class_name in product_counts:
-                    product_counts[class_name] += 1
-                else:
-                    product_counts[class_name] = 1
+                if confidence < CONF_THRESHOLD:
+                    filtered_low_conf += 1
+                    continue
+
+                st = product_stats.setdefault(class_name, {"count": 0, "conf_sum": 0.0, "conf_min": 1.0})
+                st["count"] += 1
+                st["conf_sum"] += confidence
+                st["conf_min"] = min(st["conf_min"], confidence)
 
                 detections.append({
                     "class": class_name,
@@ -78,16 +105,25 @@ def scan():
                 })
 
         detected_products = [
-            {"name": name, "count": count}
-            for name, count in product_counts.items()
+            {
+                "name": name,
+                "count": st["count"],
+                "confidence": round(st["conf_sum"] / st["count"], 2),
+                "min_confidence": round(st["conf_min"], 2),
+            }
+            for name, st in product_stats.items()
         ]
 
         return jsonify({
             "success": True,
-            "total_products": sum(product_counts.values()),
-            "unique_products": len(product_counts),
+            "total_products": sum(s["count"] for s in product_stats.values()),
+            "unique_products": len(product_stats),
             "detections": detections,
-            "products": detected_products
+            "products": detected_products,
+            "model_used": model_info.get("model_used"),
+            "fallback": model_info.get("fallback", False),
+            "conf_threshold": CONF_THRESHOLD,
+            "filtered_low_conf": filtered_low_conf,
         })
 
     except Exception as e:
