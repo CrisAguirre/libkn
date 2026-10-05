@@ -25,13 +25,28 @@ const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const StockCount = require('../models/StockCount');
 
-const FILE = path.join(__dirname, '../../scanner/conteo_total_final.json');
+const FILE = process.env.SEED_FILE || path.join(__dirname, '../../scanner/conteo_total_final.json');
 const APPLY = process.argv.includes('--apply');
 
 // Familia (subcadena, minusculas sin tildes) -> nombre EXACTO en BD.
 // Agregue aqui los casos que el difuso no resuelva tras el primer --dry-run.
 const MAPEO = {
-  // 'atun van camps': 'Atun Van Camps 170g',
+  // Lote certero 2026-10-05 (verificado contra catalogo real, SKU unico):
+  'mermelada san jorge': 'Mermelada San Jorge 80 gr',
+  'vanish': 'Vanish Rosa 130 ml',
+  'solla conejo': 'Solla Conejos 1 Kg',
+  'zucaritas': 'Zucaritas',
+  'budweiser': 'Budweiser Lata 269 ml',
+  'atun van camps': 'Atun Van Camps lomitos',
+  'atun mar brava': 'Atun Mar brava lomitos',
+  'temperas': 'Temperas caja',
+  'talco yodora': 'Talco Yodora 60gr',
+  'bianchi': 'Barra bianchi mini',
+  'hit caja': 'Jugo hit caja 1 L',
+  'chococono': 'Chococono',
+  'cafe aguila roja': 'Café Aguila Roja 500 gr',
+  'menta helada': 'Menta helada unidad',
+  'leche klim': 'Leche Klin 25 gr',
 };
 
 // Zonas AUTO (clases genericas de la IA) -> reparto manual a SKU.
