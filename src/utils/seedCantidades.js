@@ -47,6 +47,11 @@ const MAPEO = {
   'cafe aguila roja': 'Café Aguila Roja 500 gr',
   'menta helada': 'Menta helada unidad',
   'leche klim': 'Leche Klin 25 gr',
+  'te suntea': 'Suntea 12 Gr',
+  'blancox botellas': 'Blanqueador Blancox 500 ml',
+  'ariel': 'Ariel regular 100 gr',
+  'promasa': 'Promasa blanca 500 gr',
+  'cherry': 'Betun Cherry pequeño colores',
 };
 
 // Zonas AUTO (clases genericas de la IA) -> reparto manual a SKU.
