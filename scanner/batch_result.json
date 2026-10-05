@@ -1,0 +1,1086 @@
+{
+ "photos": [
+  {
+   "file": "1.jpg",
+   "zone": "1",
+   "world_total": 21,
+   "world_break": {
+    "can": 2,
+    "bottle": 13,
+    "cardboard box": 3,
+    "food bag": 3
+   },
+   "coco_total": 11,
+   "coco_break": {
+    "bottle": 7,
+    "refrigerator": 2,
+    "handbag": 1,
+    "book": 1
+   }
+  },
+  {
+   "file": "10.jpg",
+   "zone": "10",
+   "world_total": 28,
+   "world_break": {
+    "bottle": 22,
+    "food bag": 6
+   },
+   "coco_total": 17,
+   "coco_break": {
+    "bottle": 16,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "10b.jpg",
+   "zone": "10",
+   "world_total": 34,
+   "world_break": {
+    "bottle": 26,
+    "cardboard box": 6,
+    "food bag": 2
+   },
+   "coco_total": 17,
+   "coco_break": {
+    "bottle": 13,
+    "refrigerator": 4
+   }
+  },
+  {
+   "file": "11.jpg",
+   "zone": "11",
+   "world_total": 17,
+   "world_break": {
+    "bottle": 4,
+    "cardboard box": 10,
+    "jar": 1,
+    "food bag": 2
+   },
+   "coco_total": 3,
+   "coco_break": {
+    "suitcase": 1,
+    "book": 1,
+    "person": 1
+   }
+  },
+  {
+   "file": "12.jpg",
+   "zone": "12",
+   "world_total": 46,
+   "world_break": {
+    "bottle": 24,
+    "food bag": 20,
+    "cardboard box": 2
+   },
+   "coco_total": 17,
+   "coco_break": {
+    "bottle": 14,
+    "refrigerator": 3
+   }
+  },
+  {
+   "file": "12b.jpg",
+   "zone": "12",
+   "world_total": 16,
+   "world_break": {
+    "cardboard box": 8,
+    "bottle": 8
+   },
+   "coco_total": 6,
+   "coco_break": {
+    "bottle": 6
+   }
+  },
+  {
+   "file": "13.jpg",
+   "zone": "13",
+   "world_total": 18,
+   "world_break": {
+    "food bag": 13,
+    "bottle": 5
+   },
+   "coco_total": 2,
+   "coco_break": {
+    "refrigerator": 1,
+    "bottle": 1
+   }
+  },
+  {
+   "file": "13b.jpg",
+   "zone": "13",
+   "world_total": 40,
+   "world_break": {
+    "bottle": 36,
+    "food bag": 4
+   },
+   "coco_total": 13,
+   "coco_break": {
+    "bottle": 8,
+    "refrigerator": 2,
+    "cup": 2,
+    "book": 1
+   }
+  },
+  {
+   "file": "14.jpg",
+   "zone": "14",
+   "world_total": 52,
+   "world_break": {
+    "bottle": 42,
+    "food bag": 4,
+    "jar": 2,
+    "cardboard box": 4
+   },
+   "coco_total": 36,
+   "coco_break": {
+    "bottle": 23,
+    "bowl": 3,
+    "refrigerator": 3,
+    "person": 5,
+    "book": 2
+   }
+  },
+  {
+   "file": "14b.jpg",
+   "zone": "14",
+   "world_total": 31,
+   "world_break": {
+    "bottle": 27,
+    "cardboard box": 2,
+    "food bag": 2
+   },
+   "coco_total": 22,
+   "coco_break": {
+    "bottle": 16,
+    "refrigerator": 2,
+    "book": 3,
+    "cup": 1
+   }
+  },
+  {
+   "file": "15.jpg",
+   "zone": "15",
+   "world_total": 7,
+   "world_break": {
+    "bottle": 1,
+    "cardboard box": 2,
+    "food bag": 3,
+    "can": 1
+   },
+   "coco_total": 1,
+   "coco_break": {
+    "person": 1
+   }
+  },
+  {
+   "file": "16.jpg",
+   "zone": "16",
+   "world_total": 17,
+   "world_break": {
+    "bottle": 9,
+    "food bag": 2,
+    "cardboard box": 5,
+    "can": 1
+   },
+   "coco_total": 7,
+   "coco_break": {
+    "refrigerator": 1,
+    "bottle": 5,
+    "cup": 1
+   }
+  },
+  {
+   "file": "17.jpg",
+   "zone": "17",
+   "world_total": 17,
+   "world_break": {
+    "food bag": 11,
+    "cardboard box": 5,
+    "bottle": 1
+   },
+   "coco_total": 10,
+   "coco_break": {
+    "teddy bear": 2,
+    "book": 5,
+    "hot dog": 1,
+    "bottle": 1,
+    "cake": 1
+   }
+  },
+  {
+   "file": "17b.jpg",
+   "zone": "17",
+   "world_total": 16,
+   "world_break": {
+    "cardboard box": 7,
+    "bottle": 3,
+    "food bag": 6
+   },
+   "coco_total": 13,
+   "coco_break": {
+    "refrigerator": 1,
+    "book": 9,
+    "bottle": 1,
+    "cake": 2
+   }
+  },
+  {
+   "file": "18.jpg",
+   "zone": "18",
+   "world_total": 12,
+   "world_break": {
+    "cardboard box": 9,
+    "food bag": 2,
+    "bottle": 1
+   },
+   "coco_total": 5,
+   "coco_break": {
+    "tie": 5
+   }
+  },
+  {
+   "file": "19.jpg",
+   "zone": "19",
+   "world_total": 20,
+   "world_break": {
+    "cardboard box": 7,
+    "bottle": 13
+   },
+   "coco_total": 3,
+   "coco_break": {
+    "person": 2,
+    "suitcase": 1
+   }
+  },
+  {
+   "file": "1b.jpg",
+   "zone": "1",
+   "world_total": 3,
+   "world_break": {
+    "cardboard box": 2,
+    "food bag": 1
+   },
+   "coco_total": 1,
+   "coco_break": {
+    "cup": 1
+   }
+  },
+  {
+   "file": "2.jpg",
+   "zone": "2",
+   "world_total": 5,
+   "world_break": {
+    "bottle": 5
+   },
+   "coco_total": 6,
+   "coco_break": {
+    "cake": 1,
+    "book": 2,
+    "banana": 1,
+    "bottle": 2
+   }
+  },
+  {
+   "file": "20.jpg",
+   "zone": "20",
+   "world_total": 20,
+   "world_break": {
+    "bottle": 13,
+    "food bag": 5,
+    "cardboard box": 2
+   },
+   "coco_total": 11,
+   "coco_break": {
+    "bottle": 10,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "21.jpg",
+   "zone": "21",
+   "world_total": 4,
+   "world_break": {
+    "bottle": 1,
+    "food bag": 1,
+    "cardboard box": 2
+   },
+   "coco_total": 0,
+   "coco_break": {}
+  },
+  {
+   "file": "22.jpg",
+   "zone": "22",
+   "world_total": 14,
+   "world_break": {
+    "food bag": 13,
+    "bottle": 1
+   },
+   "coco_total": 0,
+   "coco_break": {}
+  },
+  {
+   "file": "23.jpg",
+   "zone": "23",
+   "world_total": 21,
+   "world_break": {
+    "food bag": 20,
+    "bottle": 1
+   },
+   "coco_total": 2,
+   "coco_break": {
+    "donut": 1,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "24.jpg",
+   "zone": "24",
+   "world_total": 36,
+   "world_break": {
+    "food bag": 32,
+    "cardboard box": 1,
+    "bottle": 3
+   },
+   "coco_total": 0,
+   "coco_break": {}
+  },
+  {
+   "file": "25.jpg",
+   "zone": "25",
+   "world_total": 72,
+   "world_break": {
+    "bottle": 72
+   },
+   "coco_total": 54,
+   "coco_break": {
+    "bottle": 51,
+    "refrigerator": 3
+   }
+  },
+  {
+   "file": "25b.jpg",
+   "zone": "25",
+   "world_total": 36,
+   "world_break": {
+    "bottle": 35,
+    "cardboard box": 1
+   },
+   "coco_total": 28,
+   "coco_break": {
+    "bottle": 21,
+    "refrigerator": 5,
+    "cup": 2
+   }
+  },
+  {
+   "file": "26.jpg",
+   "zone": "26",
+   "world_total": 2,
+   "world_break": {
+    "bottle": 2
+   },
+   "coco_total": 2,
+   "coco_break": {
+    "apple": 1,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "27.jpg",
+   "zone": "27",
+   "world_total": 4,
+   "world_break": {
+    "bottle": 3,
+    "cardboard box": 1
+   },
+   "coco_total": 2,
+   "coco_break": {
+    "refrigerator": 1,
+    "bottle": 1
+   }
+  },
+  {
+   "file": "28.jpg",
+   "zone": "28",
+   "world_total": 9,
+   "world_break": {
+    "bottle": 5,
+    "cardboard box": 2,
+    "can": 1,
+    "jar": 1
+   },
+   "coco_total": 7,
+   "coco_break": {
+    "vase": 2,
+    "person": 1,
+    "potted plant": 3,
+    "donut": 1
+   }
+  },
+  {
+   "file": "29.jpg",
+   "zone": "29",
+   "world_total": 17,
+   "world_break": {
+    "bottle": 14,
+    "cardboard box": 2,
+    "food bag": 1
+   },
+   "coco_total": 8,
+   "coco_break": {
+    "bottle": 6,
+    "refrigerator": 1,
+    "book": 1
+   }
+  },
+  {
+   "file": "2b.jpg",
+   "zone": "2",
+   "world_total": 8,
+   "world_break": {
+    "cardboard box": 3,
+    "bottle": 3,
+    "can": 1,
+    "food bag": 1
+   },
+   "coco_total": 13,
+   "coco_break": {
+    "book": 8,
+    "bowl": 1,
+    "bottle": 2,
+    "cake": 1,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "3.jpg",
+   "zone": "3",
+   "world_total": 5,
+   "world_break": {
+    "bottle": 1,
+    "food bag": 4
+   },
+   "coco_total": 3,
+   "coco_break": {
+    "vase": 1,
+    "bottle": 1,
+    "book": 1
+   }
+  },
+  {
+   "file": "30.jpg",
+   "zone": "30",
+   "world_total": 13,
+   "world_break": {
+    "bottle": 10,
+    "jar": 1,
+    "food bag": 2
+   },
+   "coco_total": 7,
+   "coco_break": {
+    "bottle": 3,
+    "book": 3,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "31.jpg",
+   "zone": "31",
+   "world_total": 6,
+   "world_break": {
+    "food bag": 4,
+    "bottle": 1,
+    "cardboard box": 1
+   },
+   "coco_total": 0,
+   "coco_break": {}
+  },
+  {
+   "file": "32.jpg",
+   "zone": "32",
+   "world_total": 9,
+   "world_break": {
+    "bottle": 9
+   },
+   "coco_total": 7,
+   "coco_break": {
+    "refrigerator": 3,
+    "carrot": 1,
+    "bottle": 1,
+    "hot dog": 2
+   }
+  },
+  {
+   "file": "33.jpg",
+   "zone": "33",
+   "world_total": 48,
+   "world_break": {
+    "bottle": 47,
+    "cardboard box": 1
+   },
+   "coco_total": 34,
+   "coco_break": {
+    "bottle": 29,
+    "refrigerator": 5
+   }
+  },
+  {
+   "file": "34.jpg",
+   "zone": "34",
+   "world_total": 61,
+   "world_break": {
+    "bottle": 61
+   },
+   "coco_total": 51,
+   "coco_break": {
+    "bottle": 46,
+    "refrigerator": 5
+   }
+  },
+  {
+   "file": "35.jpg",
+   "zone": "35",
+   "world_total": 23,
+   "world_break": {
+    "bottle": 20,
+    "cardboard box": 3
+   },
+   "coco_total": 5,
+   "coco_break": {
+    "refrigerator": 2,
+    "bottle": 2,
+    "cake": 1
+   }
+  },
+  {
+   "file": "36.jpg",
+   "zone": "36",
+   "world_total": 26,
+   "world_break": {
+    "bottle": 26
+   },
+   "coco_total": 26,
+   "coco_break": {
+    "bottle": 21,
+    "refrigerator": 5
+   }
+  },
+  {
+   "file": "37.jpg",
+   "zone": "37",
+   "world_total": 4,
+   "world_break": {
+    "food bag": 3,
+    "cardboard box": 1
+   },
+   "coco_total": 5,
+   "coco_break": {
+    "sandwich": 1,
+    "hot dog": 4
+   }
+  },
+  {
+   "file": "38.jpg",
+   "zone": "38",
+   "world_total": 3,
+   "world_break": {
+    "food bag": 2,
+    "cardboard box": 1
+   },
+   "coco_total": 7,
+   "coco_break": {
+    "apple": 3,
+    "donut": 2,
+    "hot dog": 1,
+    "orange": 1
+   }
+  },
+  {
+   "file": "39.jpg",
+   "zone": "39",
+   "world_total": 4,
+   "world_break": {
+    "food bag": 3,
+    "bottle": 1
+   },
+   "coco_total": 5,
+   "coco_break": {
+    "donut": 4,
+    "apple": 1
+   }
+  },
+  {
+   "file": "3b.jpg",
+   "zone": "3",
+   "world_total": 6,
+   "world_break": {
+    "cardboard box": 5,
+    "food bag": 1
+   },
+   "coco_total": 11,
+   "coco_break": {
+    "donut": 5,
+    "sandwich": 3,
+    "book": 3
+   }
+  },
+  {
+   "file": "4.jpg",
+   "zone": "4",
+   "world_total": 33,
+   "world_break": {
+    "bottle": 24,
+    "food bag": 9
+   },
+   "coco_total": 32,
+   "coco_break": {
+    "bottle": 29,
+    "refrigerator": 3
+   }
+  },
+  {
+   "file": "40.jpg",
+   "zone": "40",
+   "world_total": 43,
+   "world_break": {
+    "bottle": 40,
+    "food bag": 3
+   },
+   "coco_total": 21,
+   "coco_break": {
+    "bottle": 16,
+    "refrigerator": 4,
+    "book": 1
+   }
+  },
+  {
+   "file": "40a.jpg",
+   "zone": "40",
+   "world_total": 27,
+   "world_break": {
+    "bottle": 26,
+    "cardboard box": 1
+   },
+   "coco_total": 16,
+   "coco_break": {
+    "bottle": 15,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "40b.jpg",
+   "zone": "40",
+   "world_total": 33,
+   "world_break": {
+    "bottle": 24,
+    "cardboard box": 3,
+    "food bag": 5,
+    "jar": 1
+   },
+   "coco_total": 14,
+   "coco_break": {
+    "bottle": 11,
+    "refrigerator": 2,
+    "cup": 1
+   }
+  },
+  {
+   "file": "4b.jpg",
+   "zone": "4",
+   "world_total": 52,
+   "world_break": {
+    "bottle": 52
+   },
+   "coco_total": 54,
+   "coco_break": {
+    "bottle": 46,
+    "refrigerator": 3,
+    "book": 5
+   }
+  },
+  {
+   "file": "5.jpg",
+   "zone": "5",
+   "world_total": 9,
+   "world_break": {
+    "bottle": 5,
+    "food bag": 4
+   },
+   "coco_total": 5,
+   "coco_break": {
+    "bottle": 2,
+    "book": 2,
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "6.jpg",
+   "zone": "6",
+   "world_total": 23,
+   "world_break": {
+    "bottle": 10,
+    "cardboard box": 3,
+    "food bag": 10
+   },
+   "coco_total": 8,
+   "coco_break": {
+    "banana": 1,
+    "vase": 2,
+    "bottle": 5
+   }
+  },
+  {
+   "file": "6b.jpg",
+   "zone": "6",
+   "world_total": 8,
+   "world_break": {
+    "food bag": 7,
+    "bottle": 1
+   },
+   "coco_total": 6,
+   "coco_break": {
+    "bowl": 2,
+    "cup": 2,
+    "sink": 1,
+    "handbag": 1
+   }
+  },
+  {
+   "file": "7.jpg",
+   "zone": "7",
+   "world_total": 12,
+   "world_break": {
+    "food bag": 2,
+    "bottle": 10
+   },
+   "coco_total": 3,
+   "coco_break": {
+    "book": 1,
+    "clock": 1,
+    "tie": 1
+   }
+  },
+  {
+   "file": "8.jpg",
+   "zone": "8",
+   "world_total": 6,
+   "world_break": {
+    "food bag": 2,
+    "cardboard box": 4
+   },
+   "coco_total": 1,
+   "coco_break": {
+    "refrigerator": 1
+   }
+  },
+  {
+   "file": "9.jpg",
+   "zone": "9",
+   "world_total": 11,
+   "world_break": {
+    "cardboard box": 10,
+    "food bag": 1
+   },
+   "coco_total": 1,
+   "coco_break": {
+    "book": 1
+   }
+  }
+ ],
+ "zones": {
+  "1": {
+   "files": [
+    "1.jpg",
+    "1b.jpg"
+   ],
+   "world_zona": 24,
+   "coco_zona": 12
+  },
+  "2": {
+   "files": [
+    "2.jpg",
+    "2b.jpg"
+   ],
+   "world_zona": 13,
+   "coco_zona": 19
+  },
+  "3": {
+   "files": [
+    "3.jpg",
+    "3b.jpg"
+   ],
+   "world_zona": 11,
+   "coco_zona": 14
+  },
+  "4": {
+   "files": [
+    "4.jpg",
+    "4b.jpg"
+   ],
+   "world_zona": 85,
+   "coco_zona": 86
+  },
+  "5": {
+   "files": [
+    "5.jpg"
+   ],
+   "world_zona": 9,
+   "coco_zona": 5
+  },
+  "6": {
+   "files": [
+    "6.jpg",
+    "6b.jpg"
+   ],
+   "world_zona": 31,
+   "coco_zona": 14
+  },
+  "7": {
+   "files": [
+    "7.jpg"
+   ],
+   "world_zona": 12,
+   "coco_zona": 3
+  },
+  "8": {
+   "files": [
+    "8.jpg"
+   ],
+   "world_zona": 6,
+   "coco_zona": 1
+  },
+  "9": {
+   "files": [
+    "9.jpg"
+   ],
+   "world_zona": 11,
+   "coco_zona": 1
+  },
+  "10": {
+   "files": [
+    "10.jpg",
+    "10b.jpg"
+   ],
+   "world_zona": 62,
+   "coco_zona": 34
+  },
+  "11": {
+   "files": [
+    "11.jpg"
+   ],
+   "world_zona": 17,
+   "coco_zona": 3
+  },
+  "12": {
+   "files": [
+    "12.jpg",
+    "12b.jpg"
+   ],
+   "world_zona": 62,
+   "coco_zona": 23
+  },
+  "13": {
+   "files": [
+    "13.jpg",
+    "13b.jpg"
+   ],
+   "world_zona": 58,
+   "coco_zona": 15
+  },
+  "14": {
+   "files": [
+    "14.jpg",
+    "14b.jpg"
+   ],
+   "world_zona": 83,
+   "coco_zona": 58
+  },
+  "15": {
+   "files": [
+    "15.jpg"
+   ],
+   "world_zona": 7,
+   "coco_zona": 1
+  },
+  "16": {
+   "files": [
+    "16.jpg"
+   ],
+   "world_zona": 17,
+   "coco_zona": 7
+  },
+  "17": {
+   "files": [
+    "17.jpg",
+    "17b.jpg"
+   ],
+   "world_zona": 33,
+   "coco_zona": 23
+  },
+  "18": {
+   "files": [
+    "18.jpg"
+   ],
+   "world_zona": 12,
+   "coco_zona": 5
+  },
+  "19": {
+   "files": [
+    "19.jpg"
+   ],
+   "world_zona": 20,
+   "coco_zona": 3
+  },
+  "20": {
+   "files": [
+    "20.jpg"
+   ],
+   "world_zona": 20,
+   "coco_zona": 11
+  },
+  "21": {
+   "files": [
+    "21.jpg"
+   ],
+   "world_zona": 4,
+   "coco_zona": 0
+  },
+  "22": {
+   "files": [
+    "22.jpg"
+   ],
+   "world_zona": 14,
+   "coco_zona": 0
+  },
+  "23": {
+   "files": [
+    "23.jpg"
+   ],
+   "world_zona": 21,
+   "coco_zona": 2
+  },
+  "24": {
+   "files": [
+    "24.jpg"
+   ],
+   "world_zona": 36,
+   "coco_zona": 0
+  },
+  "25": {
+   "files": [
+    "25.jpg",
+    "25b.jpg"
+   ],
+   "world_zona": 108,
+   "coco_zona": 82
+  },
+  "26": {
+   "files": [
+    "26.jpg"
+   ],
+   "world_zona": 2,
+   "coco_zona": 2
+  },
+  "27": {
+   "files": [
+    "27.jpg"
+   ],
+   "world_zona": 4,
+   "coco_zona": 2
+  },
+  "28": {
+   "files": [
+    "28.jpg"
+   ],
+   "world_zona": 9,
+   "coco_zona": 7
+  },
+  "29": {
+   "files": [
+    "29.jpg"
+   ],
+   "world_zona": 17,
+   "coco_zona": 8
+  },
+  "30": {
+   "files": [
+    "30.jpg"
+   ],
+   "world_zona": 13,
+   "coco_zona": 7
+  },
+  "31": {
+   "files": [
+    "31.jpg"
+   ],
+   "world_zona": 6,
+   "coco_zona": 0
+  },
+  "32": {
+   "files": [
+    "32.jpg"
+   ],
+   "world_zona": 9,
+   "coco_zona": 7
+  },
+  "33": {
+   "files": [
+    "33.jpg"
+   ],
+   "world_zona": 48,
+   "coco_zona": 34
+  },
+  "34": {
+   "files": [
+    "34.jpg"
+   ],
+   "world_zona": 61,
+   "coco_zona": 51
+  },
+  "35": {
+   "files": [
+    "35.jpg"
+   ],
+   "world_zona": 23,
+   "coco_zona": 5
+  },
+  "36": {
+   "files": [
+    "36.jpg"
+   ],
+   "world_zona": 26,
+   "coco_zona": 26
+  },
+  "37": {
+   "files": [
+    "37.jpg"
+   ],
+   "world_zona": 4,
+   "coco_zona": 5
+  },
+  "38": {
+   "files": [
+    "38.jpg"
+   ],
+   "world_zona": 3,
+   "coco_zona": 7
+  },
+  "39": {
+   "files": [
+    "39.jpg"
+   ],
+   "world_zona": 4,
+   "coco_zona": 5
+  },
+  "40": {
+   "files": [
+    "40.jpg",
+    "40a.jpg",
+    "40b.jpg"
+   ],
+   "world_zona": 103,
+   "coco_zona": 51
+  }
+ }
+}

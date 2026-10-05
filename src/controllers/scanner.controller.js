@@ -231,6 +231,128 @@ exports.scanAndUpdateInventory = async (req, res, next) => {
   }
 };
 
+async function callScanner(pathname, payload, timeoutMs) {
+  const fetch = (await import('node-fetch')).default;
+  const response = await fetch(`${SCANNER_URL}${pathname}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(timeoutMs || SCANNER_TIMEOUT_MS)
+  });
+  return response.json();
+}
+
+function mergeZoneCounts(perPhoto) {
+  // Regla de zona (2026-10-05): planos con igual numero base son
+  // complementarios y SE SUMAN. Ej: 1 + 1b -> zona 1; 40 + 40a + 40b.
+  const merged = {};
+  let needsManual = false;
+  for (const p of perPhoto) {
+    if (!p.success) continue;
+    if (p.needs_manual_rows || p.reliability === 'BAJA') needsManual = true;
+    for (const prod of (p.products || [])) {
+      merged[prod.name] = (merged[prod.name] || 0) + (Number(prod.count) || 0);
+    }
+  }
+  return {
+    merged_products: Object.entries(merged).map(([name, count]) => ({ name, count })),
+    merged_total: Object.values(merged).reduce((a, b) => a + b, 0),
+    needs_manual_rows: needsManual
+  };
+}
+
+exports.scanAuto = async (req, res, next) => {
+  try {
+    const { image, image_path, annotate = false, conf_world, conf_coco } = req.body;
+    if (!image && !image_path) {
+      return res.status(400).json({ success: false, error: 'Se requiere imagen (base64) o image_path' });
+    }
+    if (!isScannerRunning()) {
+      await startScannerServer();
+    }
+    const result = await callScanner('/scan-auto', { image, image_path, annotate, conf_world, conf_coco });
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.getZonesReport = async (req, res, next) => {
+  try {
+    // 1) intenta reporte vivo del servicio Python
+    if (!isScannerRunning()) {
+      await startScannerServer();
+    }
+    const fetch = (await import('node-fetch')).default;
+    try {
+      const r = await fetch(`${SCANNER_URL}/zones-report`, { signal: AbortSignal.timeout(5000) });
+      if (r.ok) {
+        const live = await r.json();
+        return res.json(live);
+      }
+    } catch {
+      // cae al archivo local
+    }
+    // 2) fallback: batch_result.json local generado por el batch
+    const reportPath = path.join(__dirname, '../../scanner/batch_result.json');
+    if (!fs.existsSync(reportPath)) {
+      return res.status(404).json({ success: false, error: 'Sin reporte: ejecuta el batch sobre src/stock' });
+    }
+    const data = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+    res.json({ success: true, ...data, source: 'local' });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Sesion multifoto por zona: recibe N fotos (base64 o rutas locales del
+// servidor), cuenta cada una con el motor auto y SUMA por zona.
+exports.scanZoneSession = async (req, res, next) => {
+  try {
+    const { photos = [], zone = null, annotate = false, update_stock = false } = req.body;
+    if (!Array.isArray(photos) || photos.length === 0) {
+      return res.status(400).json({ success: false, error: 'Se requiere arreglo photos (base64 o image_path)' });
+    }
+    if (photos.length > 10) {
+      return res.status(400).json({ success: false, error: 'Maximo 10 fotos por sesion de zona' });
+    }
+    if (!isScannerRunning()) {
+      await startScannerServer();
+    }
+    const perPhoto = [];
+    for (let i = 0; i < photos.length; i++) {
+      const p = photos[i];
+      const payload = typeof p === 'string'
+        ? { image: p, annotate }
+        : { image: p.image, image_path: p.image_path, annotate };
+      try {
+        const r = await callScanner('/scan-auto', payload);
+        perPhoto.push({ index: i, file: p.file || p.image_path || `foto_${i + 1}`, ...r });
+      } catch (e) {
+        perPhoto.push({ index: i, success: false, error: e.message });
+      }
+    }
+    const merged = mergeZoneCounts(perPhoto);
+
+    if (!update_stock) {
+      return res.json({ success: true, zone, per_photo: perPhoto, ...merged, stock_updated: false });
+    }
+
+    // Aplicacion a stock: SOLO con conteos confirmados por producto mapeado.
+    // El modo auto de unidades genericas NO pisa Product.stock sin mapeo SKU.
+    return res.json({
+      success: true,
+      zone,
+      per_photo: perPhoto,
+      ...merged,
+      stock_updated: false,
+      message: 'Conteo de unidades calculado. Para ajustar Product.stock confirma el mapeo clase->producto (SKU) o usa conteo manual por filas en zonas BAJA.'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.getScannerStatus = async (req, res, next) => {
   try {
     const running = isScannerRunning();

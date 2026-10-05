@@ -18,6 +18,8 @@ os.environ["YOLO_VERBOSE"] = "False"
 
 CONF_THRESHOLD = float(os.environ.get("SCANNER_CONF_THRESHOLD", "0.5"))
 ALLOW_COCO_FALLBACK = os.environ.get("SCANNER_ALLOW_COCO_FALLBACK", "0") == "1"
+AUTO_CONF_WORLD = float(os.environ.get("SCANNER_AUTO_CONF_WORLD", "0.15"))
+AUTO_CONF_COCO = float(os.environ.get("SCANNER_AUTO_CONF_COCO", "0.25"))
 
 def load_model():
     from ultralytics import YOLO
@@ -132,6 +134,61 @@ def scan():
             "error": str(e),
             "message": "Error en el procesamiento"
         }), 500
+
+@app.route("/scan-auto", methods=["POST"])
+def scan_auto():
+    """Conteo automatico sin best.pt (YOLO-World retail + corroboracion COCO).
+
+    Acepta {image: base64} o {image_path}. Retorna unidades por foto con
+    tier de fiabilidad (ALTA/MEDIA/BAJA). Las fotos BAJA (abarrotes a granel)
+    deben contarse manual por filas usando la foto como evidencia.
+    """
+    try:
+        from auto_count import auto_count
+    except Exception as e:
+        return jsonify({"success": False, "error": f"No se pudo cargar el motor auto: {e}"}), 500
+
+    data = request.get_json(force=True, silent=True) or {}
+
+    annotate = bool(data.get("annotate", False))
+    if "image" in data:
+        image_data = data["image"]
+        if "," in image_data:
+            image_data = image_data.split(",")[1]
+        image_bytes = base64.b64decode(image_data)
+        image_path = UPLOAD_FOLDER / "temp_scan_auto.jpg"
+        with open(image_path, "wb") as f:
+            f.write(image_bytes)
+        image_path = str(image_path)
+    elif "image_path" in data:
+        image_path = data["image_path"]
+    else:
+        return jsonify({"success": False, "error": "No se proporcionó imagen"}), 400
+
+    try:
+        result = auto_count(
+            image_path,
+            conf_world=float(data.get("conf_world", AUTO_CONF_WORLD)),
+            conf_coco=float(data.get("conf_coco", AUTO_CONF_COCO)),
+            annotate=annotate,
+        )
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e), "message": "Error en conteo automatico"}), 500
+
+
+@app.route("/zones-report", methods=["GET"])
+def zones_report():
+    import json as _json
+    report_path = Path(__file__).parent / "batch_result.json"
+    if not report_path.exists():
+        return jsonify({"success": False, "error": "Sin reporte batch: ejecuta el conteo sobre src/stock primero"}), 404
+    try:
+        data = _json.loads(report_path.read_text(encoding="utf-8"))
+        return jsonify({"success": True, **data})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
 
 @app.route("/products", methods=["GET"])
 def list_products():
