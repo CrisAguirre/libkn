@@ -1,0 +1,157 @@
+zona,fotos,producto_familia,conteo_real,metodo,nota
+1,1.jpg;1b.jpg,Salsa tomate Bary,8,VISUAL,
+1,1.jpg;1b.jpg,Mayonesa/salsas Fruco,10,VISUAL,
+1,1.jpg;1b.jpg,Soya / salsas verdes,6,VISUAL,
+1,1.jpg;1b.jpg,Gelatina Fruttino,12,VISUAL,
+1,1.jpg;1b.jpg,Compotas Boka,6,VISUAL,
+1,1.jpg;1b.jpg,Te Suntea,3,VISUAL,
+1,1.jpg;1b.jpg,Cajetillas cigarrillos (todas las marcas),65,VISUAL,Plano 1b reemplaza porcion derecha de 1.jpg
+1,1.jpg;1b.jpg,Jarra dulces mostrador,1,VISUAL,~100 unds a granel adentro
+2,2.jpg;2b.jpg,Atun Van Camps,12,VISUAL,
+2,2.jpg;2b.jpg,Atun Isabel,15,VISUAL,
+2,2.jpg;2b.jpg,Atun Mar Brava,20,VISUAL,
+2,2.jpg;2b.jpg,Bolsas arroz blanco,15,VISUAL,
+2,2.jpg;2b.jpg,Harina (blanca),12,VISUAL,
+2,2.jpg;2b.jpg,Frijol / lenteja empaque,12,VISUAL,
+2,2.jpg;2b.jpg,Sal Refisal,20,VISUAL,Plano 2b reemplaza porcion derecha de 2.jpg
+2,2.jpg;2b.jpg,Cajas sal,2,VISUAL,
+2,2.jpg;2b.jpg,Cajas Fruco / mostaza,5,VISUAL,
+2,2.jpg;2b.jpg,Mani / pasabocas,4,VISUAL,
+2,2.jpg;2b.jpg,Harina amarilla / otros (2b inferior),8,VISUAL,
+3,3.jpg;3b.jpg,Atun Atuntio,20,VISUAL,
+3,3.jpg;3b.jpg,Atun rojo (Sardinal),10,VISUAL,
+3,3.jpg;3b.jpg,Atun Van Camps verde,8,VISUAL,
+3,3.jpg;3b.jpg,Bolsas blancas (arroz),12,VISUAL,
+3,3.jpg;3b.jpg,Arroz empaque transparente,20,VISUAL,Plano 3b reemplaza porcion derecha de 3.jpg
+3,3.jpg;3b.jpg,Arroz Rica (rojo),12,VISUAL,
+3,3.jpg;3b.jpg,Arroz Florhuila,20,VISUAL,
+3,3.jpg;3b.jpg,Azucar (blanco),25,VISUAL,
+3,3.jpg;3b.jpg,Sabroson verde,6,VISUAL,
+3,3.jpg;3b.jpg,Panela,20,VISUAL,
+3,3.jpg;3b.jpg,Cajas carton (bodega),2,VISUAL,
+4,4.jpg;4b.jpg,Unidades (auto YOLO-World),85,AUTO,Ver batch_result.json para desglose por clase
+5,5.jpg,Bolsas leche,15,VISUAL,
+5,5.jpg,Latas Van Camps,6,VISUAL,
+5,5.jpg,Leche Klim (sobres),11,VISUAL,
+5,5.jpg,Choco Listo,4,VISUAL,
+5,5.jpg,La Lechera (sobres),14,VISUAL,
+5,5.jpg,Avena Quaker,4,VISUAL,
+5,5.jpg,Paquetes verdes,6,VISUAL,
+5,5.jpg,Pastas (rojo),8,VISUAL,
+5,5.jpg,Aceite Nestle,6,VISUAL,
+5,5.jpg,Latas Zenu,4,VISUAL,
+6,6.jpg;6b.jpg,Nestle vinagre / salsas,10,VISUAL,
+6,6.jpg;6b.jpg,Delinudles,6,VISUAL,
+6,6.jpg;6b.jpg,Fideos amarillos,4,VISUAL,
+6,6.jpg;6b.jpg,Sopas / caldos,20,VISUAL,
+6,6.jpg;6b.jpg,Pastas Capelli,10,VISUAL,
+6,6.jpg;6b.jpg,Mezclao,6,VISUAL,
+6,6.jpg;6b.jpg,Criollo amarillo,10,VISUAL,
+6,6.jpg;6b.jpg,Choco Listo,3,VISUAL,
+6,6.jpg;6b.jpg,Cafe Aguila Roja,12,VISUAL,6.jpg + 6b unidos (traslape en cafe)
+6,6.jpg;6b.jpg,Cafe Sello Rojo,11,VISUAL,
+6,6.jpg;6b.jpg,Cafe Morasurco,1,VISUAL,
+6,6.jpg;6b.jpg,Aceite (botellas),4,VISUAL,Solo visibles en 6b
+7,7.jpg,Unidades (auto YOLO-World),12,AUTO,Ver batch_result.json para desglose por clase
+8,8.jpg,Cajas cafe Mezcla/Corona,3,VISUAL,
+8,8.jpg,Cafe molido (bolsas),12,VISUAL,
+8,8.jpg,Sello Rojo,4,VISUAL,
+8,8.jpg,Tiras Colcafe,10,VISUAL,
+8,8.jpg,Cajas amarillas,4,VISUAL,
+8,8.jpg,Sobres sueltos,8,VISUAL,
+8,8.jpg,Cajas Snot verdes,4,VISUAL,
+8,8.jpg,Chao / Choco Disk / Trident,11,VISUAL,
+8,8.jpg,Menta Helada / caramelos,8,VISUAL,
+8,8.jpg,Mezcla roja/azul (arriba der.),12,VISUAL,
+9,9.jpg,Festival Minichips,2,VISUAL,
+9,9.jpg,Paquetes azules (cuadricula 4+5+5+4),18,VISUAL,
+9,9.jpg,Cajas Choco Disk/Jumbo/Bubbaloo,8,VISUAL,
+9,9.jpg,Trident / Chao,8,VISUAL,
+9,9.jpg,Menta Helada,8,VISUAL,
+9,9.jpg,Paquetes rojo/verde (der.),12,VISUAL,
+9,9.jpg,Bandeja huevo (maple),1,VISUAL,~30 huevos adentro
+10,10.jpg;10b.jpg,Unidades (auto YOLO-World),62,AUTO,Ver batch_result.json para desglose por clase
+11,11.jpg,Unidades (auto YOLO-World),17,AUTO,Ver batch_result.json para desglose por clase
+12,12.jpg;12b.jpg,Unidades (auto YOLO-World),62,AUTO,Ver batch_result.json para desglose por clase
+13,13.jpg;13b.jpg,Unidades (auto YOLO-World),58,AUTO,Ver batch_result.json para desglose por clase
+14,14.jpg;14b.jpg,Unidades (auto YOLO-World),83,AUTO,Ver batch_result.json para desglose por clase
+15,15.jpg,Toallas Nosotras (todos los tipos),24,VISUAL,
+15,15.jpg,Jabon Rey,9,VISUAL,
+15,15.jpg,Jabon Tiger azul,10,VISUAL,
+15,15.jpg,Jabones Protex,15,VISUAL,
+15,15.jpg,Jabones Johnson pequenos,8,VISUAL,
+15,15.jpg,Detergente Ariel verde,20,VISUAL,
+15,15.jpg,Detergente Lava,6,VISUAL,
+15,15.jpg,Detergente Fab azul,12,VISUAL,
+15,15.jpg,Suavitel,4,VISUAL,
+15,15.jpg,Detergente 3D / otros,8,VISUAL,
+16,16.jpg,Unidades (auto YOLO-World),17,AUTO,Ver batch_result.json para desglose por clase
+17,17.jpg;17b.jpg,Unidades (auto YOLO-World),33,AUTO,Ver batch_result.json para desglose por clase
+18,18.jpg,Unidades (auto YOLO-World),12,AUTO,Ver batch_result.json para desglose por clase
+19,19.jpg,Unidades (auto YOLO-World),20,AUTO,Ver batch_result.json para desglose por clase
+20,20.jpg,Unidades (auto YOLO-World),20,AUTO,Ver batch_result.json para desglose por clase
+21,21.jpg,Bolsas grandes papas (granel),6,VISUAL,
+21,21.jpg,Platanitos / papas empaque (3 columnas x 10),30,VISUAL,
+21,21.jpg,Papas amarillas der.,8,VISUAL,
+21,21.jpg,Bambi / rosquitas,6,VISUAL,
+21,21.jpg,Trululu arriba,3,VISUAL,
+22,22.jpg,Unidades (auto YOLO-World),14,AUTO,Ver batch_result.json para desglose por clase
+23,23.jpg,Unidades (auto YOLO-World),21,AUTO,Ver batch_result.json para desglose por clase
+24,24.jpg,Unidades (auto YOLO-World),36,AUTO,Ver batch_result.json para desglose por clase
+25,25.jpg;25b.jpg,Unidades (auto YOLO-World),108,AUTO,Ver batch_result.json para desglose por clase
+26,26.jpg,Recipientes dulces a granel,10,VISUAL,Unidades sueltas adentro sin contar: estimar al vender por peso visual
+26,26.jpg,Pirulito,6,VISUAL,
+26,26.jpg,Paletas / bombones sueltos,100,VISUAL,"5 canastas, estimacion conservadora"
+26,26.jpg,Bon Yurt / Kinder / Mani,12,VISUAL,
+26,26.jpg,Galletas azules / Club Social,28,VISUAL,
+26,26.jpg,Oreo / Festival,14,VISUAL,
+26,26.jpg,Pan La Doro / panquesitos,14,VISUAL,
+27,27.jpg,Chocolates grandes (Jumbo/Galak),3,VISUAL,
+27,27.jpg,Barras (Jet/Nokis/azules),12,VISUAL,
+27,27.jpg,Vasos Alpina,8,VISUAL,
+27,27.jpg,Chocolates envueltos sueltos,70,VISUAL,"Pilones, estimacion conservadora"
+27,27.jpg,Bianchi,6,VISUAL,
+27,27.jpg,Mezcla surtida,15,VISUAL,
+28,28.jpg,Chocolates grandes (Galak/Jumbo),3,VISUAL,
+28,28.jpg,Barras Jet,3,VISUAL,
+28,28.jpg,Vasos arequipe,6,VISUAL,
+28,28.jpg,Chocolates envueltos sueltos,40,VISUAL,"Pilones, estimacion conservadora"
+28,28.jpg,Bianchi / Karchi,10,VISUAL,
+28,28.jpg,Masmelos / otros,5,VISUAL,
+29,29.jpg,Unidades (auto YOLO-World),17,AUTO,Ver batch_result.json para desglose por clase
+30,30.jpg,Unidades (auto YOLO-World),13,AUTO,Ver batch_result.json para desglose por clase
+31,31.jpg,Chocoramo,15,VISUAL,
+31,31.jpg,Bimbo Chocoso,3,VISUAL,
+31,31.jpg,Gala,2,VISUAL,
+31,31.jpg,Mr Brown,6,VISUAL,
+31,31.jpg,Brownie,5,VISUAL,
+31,31.jpg,Gansito,4,VISUAL,
+31,31.jpg,Submarinos,5,VISUAL,
+31,31.jpg,Azules surtidos,4,VISUAL,
+31,31.jpg,Bandejas huevo (maple),2,VISUAL,"Vistos por reflejo en vitrina, confirmar en sitio"
+32,32.jpg,Salchichas (paquetes colgados),6,VISUAL,
+32,32.jpg,Jamon / mortadela,8,VISUAL,
+32,32.jpg,Chorizos,6,VISUAL,
+32,32.jpg,Salchichon (rollos),10,VISUAL,
+32,32.jpg,Mac Pollo,6,VISUAL,
+32,32.jpg,Mezcla roja / otros,8,VISUAL,
+33,33.jpg,Unidades (auto YOLO-World),48,AUTO,Ver batch_result.json para desglose por clase
+34,34.jpg,Unidades (auto YOLO-World),61,AUTO,Ver batch_result.json para desglose por clase
+35,35.jpg,Unidades (auto YOLO-World),23,AUTO,Ver batch_result.json para desglose por clase
+36,36.jpg,Unidades (auto YOLO-World),26,AUTO,Ver batch_result.json para desglose por clase
+37,37.jpg,Bandejas pollo,16,VISUAL,
+37,37.jpg,Bolsas pollo Bucanero,5,VISUAL,
+38,38.jpg,Conos,5,VISUAL,
+38,38.jpg,Vasos fresa,4,VISUAL,
+38,38.jpg,Paletas caseras,20,VISUAL,
+38,38.jpg,Mini Choco,4,VISUAL,
+38,38.jpg,Bonice / Vive,8,VISUAL,
+39,39.jpg,Vive 100,4,VISUAL,
+39,39.jpg,Aloha,5,VISUAL,
+39,39.jpg,Dracula,5,VISUAL,
+39,39.jpg,Chococono,5,VISUAL,
+39,39.jpg,Conos,6,VISUAL,
+39,39.jpg,Vasos,3,VISUAL,
+39,39.jpg,Paletas casero,5,VISUAL,
+39,39.jpg,Mini Choco,4,VISUAL,
+40,40.jpg;40a.jpg;40b.jpg,Unidades (auto YOLO-World),103,AUTO,Ver batch_result.json para desglose por clase
